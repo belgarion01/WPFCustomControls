@@ -6,14 +6,44 @@
         xmlns:local="clr-namespace:CustomControls"
         xmlns:numericControls="clr-namespace:CustomControls.NumericControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <StackPanel>
-        <numericControls:IntTextBox IntValue="{Binding MyInteger, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    CornerRadius="0"/>
+        <!--<numericControls:IntTextBox Value="{Binding MyInteger, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
+        <numericControls:DoubleTextBox Value="{Binding MyDouble, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       MinValue="{Binding MyMinDoubleValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       MaxValue="{Binding MyMaxDoubleValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       Margin="0, 5"/>
         <numericControls:DoubleTextBox Value="{Binding MyDouble, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                       CornerRadius="5" 
                                        Margin="0, 5"
                                        MinValue="0.0"
                                        MaxValue="100.0"/>
+        <TextBlock Text="{Binding MyDouble}"/>
+        <numericControls:IntTextBox Value="{Binding MyInteger, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       Margin="0, 5"/>
+        <numericControls:IntTextBox Value="{Binding MyInteger, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       Margin="0, 5"
+                                       MinValue="0"
+                                       MaxValue="100"/>
+        <TextBlock Text="{Binding MyInteger}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Min"/>
+            <numericControls:DoubleTextBox Value="{Binding MyMinDoubleValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Max"/>
+            <numericControls:DoubleTextBox Value="{Binding MyMaxDoubleValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2"/>
+        </Grid>
     </StackPanel>
 </Window>

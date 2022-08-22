@@ -29,4 +29,28 @@ public class MainWindowViewModel : ViewModel
             OnPropertyChanged();
         }
     }
+
+    private double _myMinDoubleValue;
+
+    public double MyMinDoubleValue
+    {
+        get => _myMinDoubleValue;
+        set
+        {
+            _myMinDoubleValue = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private double _myMaxDoubleValue;
+
+    public double MyMaxDoubleValue
+    {
+        get => _myMaxDoubleValue;
+        set
+        {
+            _myMaxDoubleValue = value;
+            OnPropertyChanged();
+        }
+    }
 }
